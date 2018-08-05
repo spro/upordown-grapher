@@ -3,6 +3,7 @@ set -e
 
 if [ "$#" -lt 2 ]; then
     echo "Usage: $(basename $0) [channel] [title] [date?]"
+    exit 1
 fi
 
 CHANNEL=$1
