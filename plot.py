@@ -4,12 +4,13 @@ import sys
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 import numpy as np
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import matplotlib.dates as mdates
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap, BoundaryNorm
-from imgurpython import ImgurClient
 
 # Get time range
 
