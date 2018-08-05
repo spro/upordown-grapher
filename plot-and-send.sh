@@ -10,6 +10,8 @@ CHANNEL=$1
 TITLE=$2
 DATE=$3
 
+cd $(dirname ${BASH_SOURCE[0]})
+
 filename=$(python plot.py $DATE)
 echo \$filename = $filename
 python send.py $CHANNEL $filename "$TITLE"
