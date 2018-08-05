@@ -12,4 +12,4 @@ DATE=$3
 
 filename=$(python plot.py $DATE)
 echo \$filename = $filename
-coffee ../upordown-mention/test-send-image.coffee $CHANNEL $filename $TITLE
+python send.py $CHANNEL $filename $TITLE
