@@ -4,12 +4,12 @@ import boto3
 
 channel = sys.argv[1]
 image_url = sys.argv[2]
-text = sys.argv[3]
+title = sys.argv[3]
 
 payload = {
     'channel': channel,
     'attachments': [{
-        'text': text,
+        'text': title,
         'image_url': image_url
     }]
 }

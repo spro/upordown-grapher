@@ -56,9 +56,13 @@ y1.append(y2[0])
 
 # Color the lines
 if y2[-1] > y2[0]:
+    upordown = 'up'
     upordown_color = 'green'
 else:
+    upordown = 'down'
     upordown_color = 'red'
+
+change = abs(y2[0] - y2[-1])
 
 # Build and format graph
 # ------------------------------------------------------------------------------
@@ -98,4 +102,9 @@ bucketname = 'upordown-graphs'
 s3 = boto3.resource('s3')
 data = open(filename, 'rb')
 uploaded = s3.Bucket(bucketname).put_object(Key=filename, Body=data, ACL='public-read', ContentType='image/png')
-print('https://s3.amazonaws.com/%s/%s' % (bucketname, filename))
+filename = 'https://s3.amazonaws.com/%s/%s' % (bucketname, filename)
+
+title = 'BTC has gone %s $%.2f in the last %d hours' % (upordown, change, hours)
+
+print(filename)
+print(title)
