@@ -63,6 +63,7 @@ else:
     upordown_color = 'red'
 
 change = abs(y2[0] - y2[-1])
+current = y2[-1]
 
 # Build and format graph
 # ------------------------------------------------------------------------------
@@ -104,7 +105,7 @@ data = open(filename, 'rb')
 uploaded = s3.Bucket(bucketname).put_object(Key=filename, Body=data, ACL='public-read', ContentType='image/png')
 filename = 'https://s3.amazonaws.com/%s/%s' % (bucketname, filename)
 
-title = 'BTC has gone %s $%.2f in the last %d hours' % (upordown, change, hours)
+title = 'BTC has gone %s $%.2f to $%.2f in the last %d hours' % (upordown, change, current, hours)
 
 print(filename)
 print(title)
