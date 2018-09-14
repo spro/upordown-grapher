@@ -11,4 +11,9 @@ DATE=$2
 
 cd $(dirname ${BASH_SOURCE[0]})
 
-python send.py $CHANNEL $(python plot.py $DATE)
+filename_title=$(python plot.py $DATE)
+echo \$filename_title = "$filename_title"
+filename=$(echo "$filename_title" | sed -n 1p)
+title=$(echo "$filename_title" | sed -n 2p)
+
+python send.py $CHANNEL $filename "$title"
