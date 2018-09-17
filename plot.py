@@ -12,15 +12,15 @@ import matplotlib.dates as mdates
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
-# Get time range
+# Get time range (double the given hours to compare last cycle)
 
-hours = 48
+hours = 24
 if len(sys.argv) > 1:
     now = dateutil.parser.parse(sys.argv[1])
 else:
     now = datetime.datetime.now()
 end_t = int(now.timestamp())
-start_t = end_t - 60 * 60 * hours
+start_t = end_t - 60 * 60 * hours * 2
 half_t = (start_t + end_t) / 2
 
 # Get data from DynamoDB
